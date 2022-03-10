@@ -45,4 +45,17 @@ public class BoardControllerTests {
 					.getModelAndView()
 					.getModelMap());
 	}
+	@Test
+	public void testRegister() throws Exception{
+		
+		log.info(
+					mockMvc.perform(
+							MockMvcRequestBuilders.post("/board/register")
+							.param("title", "Test 테스트")
+							.param("content", "Test 테스트")
+							.param("writer", "user7")
+							)
+					.andReturn()
+					);
+	}
 }
