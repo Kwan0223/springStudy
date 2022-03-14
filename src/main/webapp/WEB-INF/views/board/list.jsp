@@ -36,7 +36,7 @@
 						<c:forEach items="${list}" var="board">
 							<tr class="odd gradeX">
 								<td>${board.bno }</td>
-								<td>${board.title }</td>
+								<td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td>
 								<td>${board.writer }</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd"
 										value="${board.regdate}" /></td>
@@ -96,8 +96,12 @@
 				$(".modal-body").html(
 						"게시글 " + parseInt(result)
 								+ " 번이 등록되었습니다.");
+			}else if (result === 'success') {
+				$(".modal-body").html(
+						"정상적으로 처리되었습니다.");
 			}
-
+			
+			
 			$("#myModal").modal("show");
 		}
 		
